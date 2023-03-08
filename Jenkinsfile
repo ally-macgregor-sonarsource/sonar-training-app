@@ -3,9 +3,9 @@ pipeline {
   stages {
     stage('SonarQube analysis') {
       steps {
-        withSonarQubeEnv('SonarQube') {
+        withSonarQubeEnv('SonarQube Localhost') {
           script {
-            def scannerHome = tool 'SonarQube Localhost';
+            def scannerHome = tool 'SonarScanner';
             def nodeHome = tool 'NodeJS';
             sh "${scannerHome}/bin/sonar-scanner -Dsonar.nodejs.executable=${nodeHome}/bin/node -X"
           }
