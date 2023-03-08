@@ -5,8 +5,8 @@ pipeline {
       steps {
         withSonarQubeEnv('SonarQube Localhost') {
           script {
-            def scannerHome = tool 'C:/scanners/sonar-scanner-4.7.0.2747-windows';
-            def nodeHome = tool 'C:/Program Files/nodejs';
+            def scannerHome = 'C:/scanners/sonar-scanner-4.7.0.2747-windows';
+            def nodeHome = 'C:/Program Files/nodejs';
             bat "${scannerHome}/bin/sonar-scanner -Dsonar.nodejs.executable=${nodeHome}/node -X"
           }
         }
